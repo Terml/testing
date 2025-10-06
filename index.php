@@ -1,6 +1,6 @@
 <?php
 const spacer = [' ', '-', '—', '–', '.', ',', '!', '?', ';', ':', '(', ')', '[', ']', '{', '}', '/', '\\', '|', '_', '+', '=', '*', '&', '%', '$', '#', '@', '~', '`', '«', '»'];
-const quote = ['«', '»'];
+const punctuation = [' ', '-', '—', '–', '.', ',', '!', '?', ';', ':', '(', ')', '[', ']', '{', '}', '/', '\\', '|', '_', '+', '=', '*', '&', '%', '$', '#', '@', '~', '`', '«', '»', '"', "'"];
 function mb_strrev($str, $encoding = 'UTF-8') {
     if (empty($str)) {
         return $str;
@@ -14,7 +14,7 @@ function mb_strrev($str, $encoding = 'UTF-8') {
     for ($i = 0; $i < $length; $i++) {
         $originalChar = mb_substr($str, $i, 1, $encoding);
         $reversedChar = mb_substr($reversed, $i, 1, $encoding);
-        if (in_array($originalChar, quote)) {
+        if (in_array($originalChar, punctuation)) {
             $result .= $originalChar;
         } elseif (mb_strtoupper($originalChar, $encoding) === $originalChar && 
                   mb_strtolower($originalChar, $encoding) !== $originalChar) {
